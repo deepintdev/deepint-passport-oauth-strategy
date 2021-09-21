@@ -2,7 +2,6 @@
   "name": "passport-deepint",
   "version": "1.0.0",
   "description": "Deep Intelligence OAuth 2.0 authentication strategy for Passport.",
-  "main": "./lib",
   "directories": {
     "lib": "lib"
   },
@@ -27,5 +26,7 @@
     "passport-strategy": "^1.0.0",
     "superagent": "^6.1.0",
     "util": "^0.12.4"
-  }
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts"
 }
