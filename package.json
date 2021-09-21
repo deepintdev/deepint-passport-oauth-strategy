@@ -1,6 +1,6 @@
 {
   "name": "passport-deepint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deep Intelligence OAuth 2.0 authentication strategy for Passport.",
   "directories": {
     "lib": "lib"
