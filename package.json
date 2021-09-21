@@ -6,6 +6,10 @@
   "directories": {
     "lib": "lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deepintdev/deepint-passport-oauth-strategy.git"
+  },
   "keywords": [
     "passport",
     "auth",
