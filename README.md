@@ -1,10 +1,10 @@
 # passport-deepint
 
-[Passport](http://passportjs.org/) strategy for authenticating with [Deep Intelligence](https://deepint.net/)
-using the OAuth 2.0 API.
+[Passport](http://passportjs.org/) strategy for authenticating with [AIR-Core](https://app.air-core.io)
+(formerly Deep Intelligence) using the OAuth 2.0 API.
 
-This module lets you authenticate using Deep Intelligence in your Node.js applications.
-By plugging into Passport, Deep Intelligence authentication can be easily and
+This module lets you authenticate using AIR-Core in your Node.js applications.
+By plugging into Passport, AIR-Core authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
@@ -21,19 +21,19 @@ $ npm install passport-deepint
 #### Create an Application
 
 Before using `passport-deepint`, you must register an application with
-Deep Intelligence.  If you have not already done so, a new application can be created in the
-[Deepint Panel](https://app.deepint.net/).
+AIR-Core.  If you have not already done so, a new application can be created in the
+[AIR-Core Panel](https://app.air-core.io/).
 Your application will be issued a client ID and client secret, which need to be
 provided to the strategy.  You will also need to configure a redirect URI which
 matches the route in your application.
 
 #### Configure Strategy
 
-The Deep Intelligence authentication strategy authenticates users using a Deep Intelligence account
+The AIR-Core authentication strategy authenticates users using an AIR-Core account
 and OAuth 2.0 tokens.  The client ID and secret obtained when creating an
 application are supplied as options when creating the strategy.  The strategy
 also requires a `verify` callback, which receives the access token as well as `profile` which contains the authenticated user's
-Deep Intelligence profile.  The `verify` callback must call `cb` providing a user to
+AIR-Core profile.  The `verify` callback must call `cb` providing a user to
 complete authentication.
 
 ```javascript
@@ -50,6 +50,30 @@ Passport.use(new DeepintStrategy({
     }
 ));
 ```
+
+#### Instance URL and endpoints
+
+By default the strategy talks to `https://app.air-core.io`. All URLs can be
+overridden through the options object, for example to keep using the legacy
+Deep Intelligence host or a self-hosted instance:
+
+```javascript
+Passport.use(new DeepintStrategy({
+    clientID: EXAMPLE_CLIENT_ID,
+    clientSecret: EXAMPLE_CLIENT_SECRET,
+    baseURL: 'https://app.deepint.net'
+    },
+    verify
+));
+```
+
+| Option | Default |
+|---|---|
+| `baseURL` | `https://app.air-core.io` |
+| `authorizationURL` | `<baseURL>/oauth/authorize` |
+| `tokenURL` | `<baseURL>/api/oauth/login` |
+| `userInfoURL` | `<baseURL>/api/v1/who` |
+| `profileURL` | `<baseURL>/api/v1/profile` |
 
 #### Authenticate Requests
 
