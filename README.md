@@ -1,7 +1,8 @@
 # passport-deepint
 
 [Passport](http://passportjs.org/) strategy for authenticating with [AIR-Core](https://app.air-core.io)
-(formerly Deep Intelligence) using the OAuth 2.0 API.
+using the OAuth 2.0 API. AIR-Core is the data and AI platform maintained by
+[AIR Institute](https://air-institute.com).
 
 This module lets you authenticate using AIR-Core in your Node.js applications.
 By plugging into Passport, AIR-Core authentication can be easily and
@@ -54,14 +55,14 @@ Passport.use(new DeepintStrategy({
 #### Instance URL and endpoints
 
 By default the strategy talks to `https://app.air-core.io`. All URLs can be
-overridden through the options object, for example to keep using the legacy
-Deep Intelligence host or a self-hosted instance:
+overridden through the options object, for example to use a self-hosted
+instance:
 
 ```javascript
 Passport.use(new DeepintStrategy({
     clientID: EXAMPLE_CLIENT_ID,
     clientSecret: EXAMPLE_CLIENT_SECRET,
-    baseURL: 'https://app.deepint.net'
+    baseURL: 'https://aircore.example.com'
     },
     verify
 ));
@@ -100,4 +101,4 @@ app.get('/auth/deepint/callback',
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2021 Deep Intelligence <[http://deepint.net/](http://deepint.net/)>
+Copyright (c) 2021-2026 [AIR Institute](https://air-institute.com)
